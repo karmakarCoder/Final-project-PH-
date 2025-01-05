@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* inter */
+  @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+  /* common css */
+  body {
+    font-family: var(--inter);
+  }
+  * {
+    @apply m-0 p-0 outline-none box-border;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  a,
+  img,
+  div,
+  ul,
+  ol {
+    @apply m-0 p-0;
+  }
+  a {
+    @apply no-underline block;
+  }
+
+  img {
+    @apply align-middle;
+  }
+}
+
+:root {
+  --primaryWhite: #ffffff;
+  --primaryBlack: #151515;
+  --golden: #bb8506;
+  --dark2: #444444;
+  --dark3: #737373;
+  --dark4: #a1a1a1;
+  --dark5: #d0d0d0;
+  --dark6: #e8e8e8;
+  --dark7: #f3f3f3;
+  --inter: "Inter", serif;
+}
