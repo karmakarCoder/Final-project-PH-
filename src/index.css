@@ -50,3 +50,12 @@
   --dark7: #f3f3f3;
   --inter: "Inter", serif;
 }
+
+@layer components {
+  #signupbg1 {
+    background: url("./assets/signupbg1.png");
+  }
+  #signupbg2 {
+    background: url("./assets/signupbg.jpg");
+  }
+}

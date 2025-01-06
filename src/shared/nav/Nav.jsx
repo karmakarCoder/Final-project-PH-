@@ -1,11 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import cart from "../../assets/cart.png";
 import { FaUserCircle } from "react-icons/fa";
+import Authcontext from "../../auth/context/Authcontext";
+import { Bounce, toast } from "react-toastify";
 
 const Nav = () => {
   const navlist = ["Home", "CONTACT us", "DASHBOARD", "Our Menu", "Our Shop"];
   const [navopen, setnavopen] = useState(false);
+  const { user, signOutUser } = useContext(Authcontext);
+  console.log(user);
+
+  const HandleLogout = () => {
+    signOutUser()
+      .then(() => {
+        toast.success(`sign out successful. `, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
+      })
+      .catch((error) => {
+        toast.error(`${error.messsage}`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Bounce,
+        });
+      });
+  };
   return (
     <div className="py-4 bg-gradient-to-r from-primaryBlack fixed top-0 left-0 z-50 w-full">
       <div className="container">
@@ -48,14 +82,33 @@ const Nav = () => {
                   1
                 </div>
               </div>
-              {/* login */}
-              <Link className="bg-primaryWhite text-primaryBlack rounded py-1 px-2 text-sm font-normal">
-                Log in
-              </Link>
-              {/* user */}
-              {/* <div className="text-primaryWhite text-3xl">
-                <FaUserCircle />
-              </div> */}
+              {user ? (
+                <div
+                  onClick={HandleLogout}
+                  className="flex items-center gap-x-2"
+                >
+                  <button className="bg-primaryWhite text-primaryBlack rounded py-1 px-2 text-sm font-normal">
+                    Log out
+                  </button>
+                  {user?.photoURL == null ? (
+                    <div className="text-primaryWhite cursor-pointer text-3xl">
+                      <FaUserCircle />
+                    </div>
+                  ) : (
+                    <div className="size-9 cursor-pointer rounded-full object-cover overflow-hidden">
+                      <img src={user?.photoURL} alt="user" />
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* login */
+                <Link
+                  to={"/signin"}
+                  className="bg-primaryWhite text-primaryBlack rounded py-1 px-2 text-sm font-normal"
+                >
+                  Log in
+                </Link>
+              )}
 
               {/* menu bar for mobile */}
               <div
