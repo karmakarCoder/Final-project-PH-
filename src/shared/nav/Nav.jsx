@@ -41,7 +41,7 @@ const Nav = () => {
       });
   };
   return (
-    <div className="py-4 bg-gradient-to-r from-primaryBlack fixed top-0 left-0 z-50 w-full">
+    <div className="lg:py-4 backdrop-blur-md md:backdrop-blur-none py-2 bg-gradient-to-r from-primaryBlack fixed top-0 left-0 z-50 w-full">
       <div className="container">
         <div className="flex items-center justify-between">
           {/* logo */}
