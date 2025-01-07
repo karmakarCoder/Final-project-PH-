@@ -151,4 +151,20 @@
       -o-transform: scale(1) !important;
     }
   }
+
+  .mySwiper3 .swiper-wrapper {
+    height: 500px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .mySwiper3 .swiper-wrapper {
+      height: 220px !important;
+    }
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .mySwiper3 .swiper-wrapper {
+      height: 340px;
+    }
+  }
 }

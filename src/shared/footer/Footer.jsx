@@ -22,6 +22,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="bg-[#111827] h-full flex flex-col items-end w-full py-6 lg:py-12 sm:pl-11">
           <div className="container flex flex-col items-center sm:items-start">
             <div className="flex items-center flex-col text-center">
